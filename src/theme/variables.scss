@@ -18,6 +18,12 @@
         --color: var(--secondary-color);
     }
 
+    .btn-next[disabled] {
+        --background: #EEEEEE;
+        opacity: 1;
+        color: #757575;
+    }
+
     .btn-signup {
         --background: var(--secondary-color);
         --color: #ffffff;
@@ -37,7 +43,7 @@
 
     .error-message {
         color: red;
-        font-size: 14pt;
+        font-size: 12pt;
         margin-top: 5px;
     }
 

@@ -36,21 +36,54 @@ ion-content {
 
                 .text-question {
                     font-size: 16pt;
+                    margin-bottom: 5px;
                 }
 
                 .text-description {
                     font-size: 16pt;
+                    color: #757575;
                     margin: 0;
                 }
             }
 
             .personal-data {
                 width: 90%;
+
                 .form-title {
                     font-size: 16pt;
                 }
+
+                ion-select {
+                    color: #AAAAAA;
+                }
+
+                ion-input {
+                    color: #AAAAAA;
+                }
+            }
+
+            .input-icon {
+                color: black;
+                font-size: 18pt;
+            }
+
+            .checkmark-icon {
+                color: var(--primary-color);
+                font-size: 18pt;
+            }
+
+            .error-item {
+                --border-color: red;
+                color: red;
+            }
+
+            .error-message {
+                margin-left: 20px;
+            }
+
+            .btn-next {
+                margin: 30px 0px;
             }
         }
     }
 }
-  
