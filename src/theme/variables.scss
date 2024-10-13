@@ -1,2 +1,82 @@
 // For information on how to create your own theme, please see:
 // http://ionicframework.com/docs/theming/
+
+:root {
+    /**
+     *  Color variables
+     */
+    --primary-color: #1EEA00;
+    --primary-color-2: #1EEA004D;
+    --secondary-color: #004B40;
+
+    /**
+     * Global styles
+     */
+
+    .btn-next {
+        --background: var(--primary-color);
+        --color: var(--secondary-color);
+    }
+
+    .btn-signup {
+        --background: var(--secondary-color);
+        --color: #ffffff;
+    }
+
+    .btn-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+        ion-button {
+            width: 90%;
+            font-size: 16pt;
+        }
+    }
+
+    .error-message {
+        color: red;
+        font-size: 14pt;
+        margin-top: 5px;
+    }
+
+    ion-button {
+        font-weight: bold;
+    }
+
+    ion-toolbar {
+        display: flex;
+
+        ion-back-button {
+            --color: var(--primary-color);
+            font-size: 11pt;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 1000;
+        }
+
+        .toolbar-title {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            width: 100%;
+
+            p {
+                color: var(--secondary-color);
+                font-size: 16pt;
+                margin: 20px 0px;
+            }
+
+            img {
+                width: 60%;
+                height: auto;
+                max-width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+
+    }
+}

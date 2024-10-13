@@ -1,0 +1,20 @@
+<div class="keyboard">
+  @for (key of keys; track key.value ) {
+    <div class="btn">
+    @if(key.type == "number") {
+      <ion-button fill="clear" class="number" (click)="pressButton(key.value)">{{key.value}}</ion-button>
+    } @else if (key.type == "icon") {
+      <ion-button fill="clear" class="icon" (click)="pressButton('delete')">
+        <ion-icon name="backspace-outline"></ion-icon>
+      </ion-button>
+    } @else {
+      <ion-fab>
+        <ion-fab-button class="btn-submit" (click)="pressButton('success')" [disabled]="disabled">
+          <ion-icon name="checkmark-outline"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
+    }
+    </div>
+
+  }
+</div>

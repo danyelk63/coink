@@ -1,0 +1,37 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button icon="chevron-back-outline" defaultHref="/home"></ion-back-button>
+      <div class="toolbar-title">
+        <p><b>NÚMERO CELULAR</b></p>
+        <img src="assets/step-1.png" alt="">
+      </div>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="principal">
+    <div class="phone-content">
+      <div class="description">
+        <img src="assets/coink-only.png" alt="">
+        <div>
+          <p>Para comenzar, por favor ingresa tu <b>número celular.</b></p>
+        </div>
+      </div>
+      <div class="phone">
+        <form [formGroup]="form">
+          <ion-input placeholder="(XXX-XXXXXX)" formControlName="phone">
+          </ion-input>
+          <div *ngIf="form.controls.phone.invalid && form.controls.phone.dirty" class="error-message">
+            <div *ngIf="form.controls.phone.errors?.['required']">El número es requerido.</div>
+            <div *ngIf="form.controls.phone.errors?.['pattern']">El número debe comenzar con 3</div>
+            <div *ngIf="form.controls.phone.errors?.['minlength'] || form.controls.phone.errors?.['maxlength']">El
+              número debe tener 10 dígitos.</div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <app-keyboard [disabled]="this.form.invalid" (keyClicked)="keyClicked($event)"></app-keyboard>
+  </div>
+</ion-content>
