@@ -1,13 +1,80 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>personal-data</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button icon="chevron-back-outline" defaultHref="/home"></ion-back-button>
+      <div class="toolbar-title">
+        <p><b>DATOS DE CUENTA</b></p>
+        <img src="assets/steps/step-2.png" alt="">
+      </div>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">personal-data</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="principal">
+    <div class="data-content">
+      <div class="description">
+        <img src="assets/icons/coink-only-large.png" alt="">
+        <div>
+          <p class="text-question"><b class="color-green">¿CUÁLES SON TUS DATOS?</b></p>
+          <p class="text-description">Ahora necesitamos saber algunos datos tuyos</p>
+        </div>
+      </div>
+      <div class="personal-data">
+        <form [formGroup]="form"  (ngSubmit)="onSubmit()">
+
+          <!-- document fields -->
+          <p><b class="form-title color-green">Documento de identidad</b></p>
+          <ion-item>
+            <ion-select placeholder="Tipo de documento" interface="popover">
+              <ion-select-option value="apple">Apple</ion-select-option>
+              <ion-select-option value="banana">Banana</ion-select-option>
+              <ion-select-option value="orange">Orange</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-item>
+            <ion-input placeholder="Número de documento"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input placeholder="Fecha de expedición del documento"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input placeholder="Confirmar correo electrónico"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-select placeholder="Genero" interface="popover">
+              <ion-select-option value="banana">Banana</ion-select-option>
+              <ion-select-option value="papaya">Papaya</ion-select-option>
+            </ion-select>
+          </ion-item>
+
+          <!-- account fields -->
+          <p><b class="form-title color-green">Documento de identidad</b></p>
+          <p color="danger">asdfasdf</p>
+          <ion-item>
+            <ion-input placeholder="Correo electrónico"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input placeholder="Confirmar correo electrónico"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input placeholder="PIN de seguridad" type="number">
+              <ion-button fill="clear" slot="end" aria-label="Show/hide">
+                <ion-icon slot="icon-only" name="eye" aria-hidden="true"></ion-icon>
+                <ion-icon slot="icon-only" name="eye-off" aria-hidden="true"></ion-icon>
+              </ion-button>
+            </ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input placeholder="Confirmar PIN de seguridad" type="number">
+              <ion-button fill="clear" slot="end" aria-label="Show/hide">
+                <ion-icon slot="icon-only" name="eye" aria-hidden="true"></ion-icon>
+                <ion-icon slot="icon-only" name="eye-off" aria-hidden="true"></ion-icon>
+              </ion-button>
+            </ion-input>
+          </ion-item>
+        </form>
+      </div>
+    </div>
+  </div>
 </ion-content>

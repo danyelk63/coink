@@ -2,9 +2,9 @@
   @for (key of keys; track key.value ) {
     <div class="btn">
     @if(key.type == "number") {
-      <ion-button fill="clear" class="number" (click)="pressButton(key.value)">{{key.value}}</ion-button>
+      <ion-button fill="clear" class="number color-green" (click)="pressButton(key.value)">{{key.value}}</ion-button>
     } @else if (key.type == "icon") {
-      <ion-button fill="clear" class="icon" (click)="pressButton('delete')">
+      <ion-button fill="clear" class="icon color-green" (click)="pressButton('delete')">
         <ion-icon name="backspace-outline"></ion-icon>
       </ion-button>
     } @else {

@@ -1,7 +1,7 @@
-import { Component, EventEmitter, Input, Output, output } from '@angular/core';
-import { IKey, IKeyValue } from 'src/app/models/keyboard';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { IonButton, IonIcon, IonFab, IonFabButton } from '@ionic/angular/standalone';
 import { CommonModule } from '@angular/common';
+import { IKey, IKeyValue } from 'src/app/models';
 
 @Component({
   selector: 'app-keyboard',
