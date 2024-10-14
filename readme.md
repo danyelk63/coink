@@ -13,3 +13,5 @@
 * Puede correrlo en web con el comando ```ionic serve``` (Tenga en cuenta que se diseño para mobil)
 * Puede conectar el celular y correrlo en el mismo con el comando ```ionic capacitor run android```
 * Puede generar una APK en este caso ha sido generada directamente desde Android Studio
+
+Pueden encontrar la apk en una carpeta llamada apk en la raiz del proyecto 
