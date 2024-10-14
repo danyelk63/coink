@@ -102,7 +102,7 @@ export class PersonalDataPage implements OnInit {
       id: this.form.controls.id.value!,
       birthdate: this.form.controls.birthdate.value!,
       email: this.form.controls.email.value!,
-      gender: this.form.controls.id.value! as gender,
+      gender: this.form.controls.gender.value! as gender,
       idType: this.form.controls.idType.value! as idType,
       issueDate: this.form.controls.issueDate.value!,
       pin: this.form.controls.pin.value!,

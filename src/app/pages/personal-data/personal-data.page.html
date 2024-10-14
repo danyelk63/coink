@@ -69,7 +69,7 @@
             <ion-select label-placement="floating" label="Genero" interface="popover" formControlName="idType"
               formControlName="gender">
               @for (gender of genders; track gender.value) {
-              <ion-select-option [value]="gender.key">{{gender.value}}</ion-select-option>
+                <ion-select-option [value]="gender.key">{{gender.value}}</ion-select-option>
               }
             </ion-select>
           </ion-item>
