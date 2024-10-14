@@ -14,6 +14,7 @@ import {
 import { Router } from '@angular/router';
 import { SignupService } from 'src/app/services/http';
 import { StorageService } from 'src/app/services/storage/storage.service';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-eula',
@@ -36,7 +37,12 @@ import { StorageService } from 'src/app/services/storage/storage.service';
 export class EulaPage {
   checkValue: boolean = false;
 
-  constructor(private router: Router, private signupService: SignupService, private storageService: StorageService) { }
+  constructor(
+    private router: Router,
+    private signupService: SignupService,
+    private storageService: StorageService,
+    private toastController: ToastController,
+  ) { }
 
   onSubmit() {
     this.signupService.post(this.storageService.get("userData")).subscribe({
@@ -47,8 +53,18 @@ export class EulaPage {
       },
       error: (error) => {
         console.error(error);
+        this.presentToast("Error al crear su cuenta");
       }
     });
+  }
+  
+  async presentToast(text: string) {
+    const toast = await this.toastController.create({
+      message: text,
+      duration: 3000,
+      position: 'bottom',
+    });
+    toast.present();
   }
 
 }

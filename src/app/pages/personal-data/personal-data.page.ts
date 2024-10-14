@@ -19,6 +19,7 @@ import { Router } from '@angular/router';
 import { DocumentTypeService, GenderService } from 'src/app/services/http';
 import { gender, idType, IGenders, IIdTypes, IUser } from 'src/app/models';
 import { StorageService } from 'src/app/services/storage/storage.service';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-personal-data',
@@ -67,12 +68,15 @@ export class PersonalDataPage implements OnInit {
   showPin: boolean = false;
   showConfirmPin: boolean = false;
 
+  toastMessage: string = "";
+
   constructor(
     private fb: FormBuilder,
     private router: Router,
     private documentTypeService: DocumentTypeService,
     private genderService: GenderService,
     private storageService: StorageService,
+    private toastController: ToastController,
   ) { }
 
   ngOnInit() {
@@ -83,6 +87,7 @@ export class PersonalDataPage implements OnInit {
       },
       error: (error) => {
         console.error(error);
+        this.presentToast("Error al cargar los tipos de id");
       }
     });
 
@@ -92,6 +97,7 @@ export class PersonalDataPage implements OnInit {
       },
       error: (error) => {
         console.error(error);
+        this.presentToast("Error al cargar los géneros");
       }
     });
   }
@@ -130,6 +136,15 @@ export class PersonalDataPage implements OnInit {
       }
       return null;
     };
+  }
+  
+  async presentToast(text: string) {
+    const toast = await this.toastController.create({
+      message: text,
+      duration: 3000,
+      position: 'bottom',
+    });
+    toast.present();
   }
 
 }
