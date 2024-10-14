@@ -25,7 +25,8 @@
 
           <!-- document fields -->
           <p><b class="form-title color-green">Documento de identidad</b></p>
-          <ion-item [class.error-item]="form.get('idType')?.invalid && (form.get('idType')?.touched || form.get('idType')?.dirty)">
+          <ion-item
+            [class.error-item]="form.get('idType')?.invalid && (form.get('idType')?.touched || form.get('idType')?.dirty)">
             <ion-select label-placement="floating" label="Tipo de documento" interface="popover"
               formControlName="idType">
               @for (idType of idTypes; track idType.value) {
@@ -33,9 +34,9 @@
               }
             </ion-select>
           </ion-item>
-            <div *ngIf="form.get('idType')?.invalid && (form.get('idType')?.touched || form.get('idType')?.dirty)">
-              <p *ngIf="form.get('idType')?.errors?.['required']" class="error-message">Este campo es obligatorio</p>
-            </div>
+          <div *ngIf="form.get('idType')?.invalid && (form.get('idType')?.touched || form.get('idType')?.dirty)">
+            <p *ngIf="form.get('idType')?.errors?.['required']" class="error-message">Este campo es obligatorio</p>
+          </div>
 
           <ion-item [class.error-item]="form.get('id')?.invalid && (form.get('id')?.touched || form.get('id')?.dirty)">
             <ion-input label-placement="floating" label="Número de documento" formControlName="id"></ion-input>
@@ -44,7 +45,8 @@
             <p *ngIf="form.get('id')?.errors?.['required']" class="error-message">Este campo es obligatorio</p>
           </div>
 
-          <ion-item [class.error-item]="form.get('issueDate')?.invalid && (form.get('issueDate')?.touched || form.get('issueDate')?.dirty)">
+          <ion-item
+            [class.error-item]="form.get('issueDate')?.invalid && (form.get('issueDate')?.touched || form.get('issueDate')?.dirty)">
             <ion-input label-placement="floating" label="Fecha de expedición del documento"
               formControlName="issueDate"></ion-input>
           </ion-item>
@@ -55,7 +57,8 @@
               dd/mm/aaaa.</p>
           </div>
 
-          <ion-item [class.error-item]="form.get('birthdate')?.invalid && (form.get('birthdate')?.touched || form.get('birthdate')?.dirty)">
+          <ion-item
+            [class.error-item]="form.get('birthdate')?.invalid && (form.get('birthdate')?.touched || form.get('birthdate')?.dirty)">
             <ion-input label-placement="floating" label="Fecha de nacimiento" formControlName="birthdate"></ion-input>
           </ion-item>
           <div
@@ -65,11 +68,12 @@
               dd/mm/aaaa.</p>
           </div>
 
-          <ion-item [class.error-item]="form.get('gender')?.invalid && (form.get('gender')?.touched || form.get('gender')?.dirty)">
+          <ion-item
+            [class.error-item]="form.get('gender')?.invalid && (form.get('gender')?.touched || form.get('gender')?.dirty)">
             <ion-select label-placement="floating" label="Genero" interface="popover" formControlName="idType"
               formControlName="gender">
               @for (gender of genders; track gender.value) {
-                <ion-select-option [value]="gender.key">{{gender.value}}</ion-select-option>
+              <ion-select-option [value]="gender.key">{{gender.value}}</ion-select-option>
               }
             </ion-select>
           </ion-item>
@@ -80,7 +84,8 @@
 
           <!-- account fields -->
           <p><b class="form-title color-green">Documento de identidad</b></p>
-          <ion-item [class.error-item]="form.get('email')?.invalid && (form.get('email')?.touched || form.get('email')?.dirty)">
+          <ion-item
+            [class.error-item]="form.get('email')?.invalid && (form.get('email')?.touched || form.get('email')?.dirty)">
             <ion-input label-placement="floating" label="Correo electrónico" formControlName="email"></ion-input>
           </ion-item>
           <div *ngIf="form.get('email')?.invalid && (form.get('email')?.touched || form.get('email')?.dirty)">
@@ -90,20 +95,24 @@
               inválido.</p>
           </div>
 
-          <ion-item [class.error-item]="form.get('confirmEmail')?.invalid && (form.get('confirmEmail')?.touched || form.get('confirmEmail')?.dirty)">
+          <ion-item
+            [class.error-item]="form.get('confirmEmail')?.invalid && (form.get('confirmEmail')?.touched || form.get('confirmEmail')?.dirty)">
             <ion-input label-placement="floating" label="Confirmar correo electrónico" formControlName="confirmEmail">
               <ion-icon class="checkmark-icon" slot="end" name="checkmark" style="display: none;"></ion-icon>
             </ion-input>
           </ion-item>
           <div
             *ngIf="form.get('confirmEmail')?.invalid && (form.get('confirmEmail')?.touched || form.get('confirmEmail')?.dirty)">
-            <p *ngIf="form.get('confirmEmail')?.errors?.['required']" class="error-message">Este campo es obligatorio</p>
-            <p *ngIf="form.get('confirmEmail')?.errors?.['pattern']" class="error-message">El formato del correo electrónico
+            <p *ngIf="form.get('confirmEmail')?.errors?.['required']" class="error-message">Este campo es obligatorio
+            </p>
+            <p *ngIf="form.get('confirmEmail')?.errors?.['pattern']" class="error-message">El formato del correo
+              electrónico
               es inválido.</p>
             <p *ngIf="form.errors?.['mismatch']" class="error-message">Los correos electrónicos no coinciden.</p>
           </div>
 
-          <ion-item [class.error-item]="form.get('pin')?.invalid && (form.get('pin')?.touched || form.get('pin')?.dirty)">
+          <ion-item
+            [class.error-item]="form.get('pin')?.invalid && (form.get('pin')?.touched || form.get('pin')?.dirty)">
             <ion-input label-placement="floating" label="PIN de seguridad" formControlName="pin"
               [type]="showPin ? 'text' : 'password'">
               @if (showPin) {
@@ -117,11 +126,13 @@
             <p *ngIf="form.get('pin')?.errors?.['required']" class="error-message">El PIN es obligatorio.</p>
             <p *ngIf="form.get('pin')?.errors?.['minlength']" class="error-message">El PIN debe tener 4 dígitos.
             </p>
-            <p *ngIf="form.get('pin')?.errors?.['maxlength']" class="error-message">El PIN no debe exceder 4 dígitos.</p>
+            <p *ngIf="form.get('pin')?.errors?.['maxlength']" class="error-message">El PIN no debe exceder 4 dígitos.
+            </p>
             <p *ngIf="form.get('pin')?.errors?.['pattern']" class="error-message">El PIN debe contener solo números.</p>
           </div>
 
-          <ion-item [class.error-item]="form.get('confirmPin')?.invalid && (form.get('confirmPin')?.touched || form.get('confirmPin')?.dirty)">
+          <ion-item
+            [class.error-item]="form.get('confirmPin')?.invalid && (form.get('confirmPin')?.touched || form.get('confirmPin')?.dirty)">
             <ion-input label-placement="floating" label="Confirmar PIN de seguridad" formControlName="confirmPin"
               [type]="showConfirmPin ? 'text' : 'password'">
               @if (showConfirmPin) {
@@ -135,20 +146,28 @@
             *ngIf="form.get('confirmPin')?.invalid && (form.get('confirmPin')?.touched || form.get('confirmPin')?.dirty)">
             <p *ngIf="form.get('confirmPin')?.errors?.['required']" class="error-message">La confirmación del PIN es
               obligatoria.</p>
-            <p *ngIf="form.get('confirmPin')?.errors?.['minlength']" class="error-message">El PIN debe tener exactamente 4
+            <p *ngIf="form.get('confirmPin')?.errors?.['minlength']" class="error-message">El PIN debe tener exactamente
+              4
               dígitos.</p>
-            <p *ngIf="form.get('confirmPin')?.errors?.['maxlength']" class="error-message">El PIN no debe exceder 4 dígitos.
+            <p *ngIf="form.get('confirmPin')?.errors?.['maxlength']" class="error-message">El PIN no debe exceder 4
+              dígitos.
             </p>
-            <p *ngIf="form.get('confirmPin')?.errors?.['pattern']" class="error-message">El PIN debe contener solo números.
+            <p *ngIf="form.get('confirmPin')?.errors?.['pattern']" class="error-message">El PIN debe contener solo
+              números.
             </p>
             <p *ngIf="form.errors?.['mismatch']" class="error-message">Los PINs no coinciden.</p>
           </div>
 
           <div class="btn-container">
-            <ion-button class="btn-next" shape="round" size="large" [disabled]="form.invalid" type="submit">SIGUIENTE</ion-button>
+            <ion-button class="btn-next" shape="round" size="large" [disabled]="form.invalid"
+              type="submit">SIGUIENTE</ion-button>
           </div>
         </form>
       </div>
     </div>
   </div>
 </ion-content>
+@if(!idTypes.length && !genders.length) {
+  <ion-backdrop [visible]="true"></ion-backdrop>
+  <ion-spinner color="success"></ion-spinner>
+}

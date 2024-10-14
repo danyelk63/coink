@@ -13,13 +13,16 @@ import {
   IonSelect,
   IonSelectOption,
   IonInput,
-  IonIcon
+  IonIcon,
+  IonBackdrop,
+  IonSpinner
 } from '@ionic/angular/standalone';
 import { Router } from '@angular/router';
 import { DocumentTypeService, GenderService } from 'src/app/services/http';
 import { gender, idType, IGenders, IIdTypes, IUser } from 'src/app/models';
 import { StorageService } from 'src/app/services/storage/storage.service';
 import { ToastController } from '@ionic/angular';
+import { delay } from 'rxjs';
 
 @Component({
   selector: 'app-personal-data',
@@ -41,7 +44,9 @@ import { ToastController } from '@ionic/angular';
     IonSelect,
     IonSelectOption,
     IonInput,
-    IonIcon
+    IonIcon,
+    IonBackdrop,
+    IonSpinner
   ]
 })
 export class PersonalDataPage implements OnInit {
@@ -81,7 +86,7 @@ export class PersonalDataPage implements OnInit {
 
   ngOnInit() {
     this.storageService.remove("userData");
-    this.documentTypeService.get().subscribe({
+    this.documentTypeService.get().pipe(delay(3000)).subscribe({
       next: (response: IIdTypes[]) => {
         this.idTypes = response;
       },
@@ -91,7 +96,7 @@ export class PersonalDataPage implements OnInit {
       }
     });
 
-    this.genderService.get().subscribe({
+    this.genderService.get().pipe(delay(3000)).subscribe({
       next: (response: IGenders[]) => {
         this.genders = response;
       },

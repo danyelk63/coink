@@ -25,14 +25,14 @@
 </ion-content>
 
 @if(isVisible) {
-<ion-backdrop [visible]="true"></ion-backdrop>
+  <ion-backdrop [visible]="true"></ion-backdrop>
 
-<div class="box">
-  <img src="assets/icons/coink-gift.png" alt="">
-  <p class="color-green"><b>¡Cuenta creada exitosamente, tu marrano ya está listo para que empieces a ahorrar!</b></p>
-  <p class="font-size-16">¡Cuenta creada exitosamente, tu marrano ya está listo para que empieces a ahorrar!</p>
-  <div class="btn-container">
-    <ion-button class="btn-next" shape="round" size="large" type="submit" (click)="hideModal()">SIGUIENTE</ion-button>
+  <div class="box">
+    <img src="assets/icons/coink-gift.png" alt="">
+    <p class="color-green"><b>¡Cuenta creada exitosamente, tu marrano ya está listo para que empieces a ahorrar!</b></p>
+    <p class="font-size-16">¡Cuenta creada exitosamente, tu marrano ya está listo para que empieces a ahorrar!</p>
+    <div class="btn-container">
+      <ion-button class="btn-next" shape="round" size="large" type="submit" (click)="hideModal()">SIGUIENTE</ion-button>
+    </div>
   </div>
-</div>
 }
